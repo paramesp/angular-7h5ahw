@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CartService } from '../cart.service';
 import { FormBuilder } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-cart',
@@ -9,6 +10,7 @@ import { FormBuilder } from '@angular/forms';
 })
 export class CartComponent {
   items = this.cart.getItems();
+  fsItems: any="";
   checkoutForm = this.formBuilder.group({
     name: '',
     address: ''
@@ -24,5 +26,10 @@ export class CartComponent {
     this.items = this.cart.clearCart();
     //console.warn('Your order has been submitted', this.checkoutForm.value);
     this.checkoutForm.reset();
+  }
+  showMapService(){
+      this.cart.getMapService().subscribe((v) =>{
+        this.fsItems=v;
+      })
   }
 }

@@ -24,4 +24,8 @@ export class CartService {
   getShippingPrices() {
     return this.http.get<{type: string, price: number}[]>('/assets/shipping.json');
   }
+  getMapService(){
+      return this.http.get('https://apps.fs.usda.gov/arcx/rest/services/EDW/EDW_BasicOwnership_02/MapServer?f=pjson')
+      
+  }
 }

@@ -6,6 +6,7 @@
   <span>{{ item.name }}</span>
   <span>{{ item.price | currency }}</span>
 </div>
+
 <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
 
 <div>
@@ -25,8 +26,14 @@
 <button class="button" type="submit">Purchase</button>
 
 </form>
-
-Your input is 
-Name: {{checkoutForm.value.name}}
-<br>
-Address:{{checkoutForm.value.address}}
+<div style="margin:10px;"></div>
+<div>
+  <button class="button" (click)="showMapService()">View Mapservice</button>
+</div>
+<div style="margin:10px;">
+  <span>Details</span>
+    {{fsItems.currentVersion}}
+</div>
+<div style="margin:10px;">Details
+    {{fsItems.description}}
+</div>
