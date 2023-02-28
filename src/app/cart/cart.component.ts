@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class CartComponent {
   items = this.cart.getItems();
-  fsItems: any="";
+  
   checkoutForm = this.formBuilder.group({
     name: '',
     address: ''
@@ -27,9 +27,5 @@ export class CartComponent {
     //console.warn('Your order has been submitted', this.checkoutForm.value);
     this.checkoutForm.reset();
   }
-  showMapService(){
-      this.cart.getMapService().subscribe((v) =>{
-        this.fsItems=v;
-      })
-  }
+
 }
